@@ -10,7 +10,7 @@ export function useData(defaultValue, URI) {
         get(URI).then(({data}) => {
             setData(data);
         });
-    }, [])
+    }, [URI])
 
     return {
         data

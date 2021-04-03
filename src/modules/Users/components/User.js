@@ -7,7 +7,7 @@ export default function User ({user}) {
         <li className="users__item">
             <span className="users__item-cell">{user.name}</span>
             <span className="users__item-cell">{user.phone}</span>
-            <span className="users__item-cell">{user.website}</span>
+            <a href={user.website} className="users__item-cell">{user.website}</a>
         </li>
     );
 }
