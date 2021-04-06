@@ -1,8 +1,8 @@
 import {React} from 'react';
 
-export default function Album ({album}) {
+export default function Album ({item}) {
     
     return (
-        <li className="albums__item">{album.title}</li>
+        <li className="albums__item">{item.title}</li>
     );
 }

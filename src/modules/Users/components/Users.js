@@ -3,17 +3,11 @@ import './users.scss';
 import { useData } from './../../../hooks/useData';
 import {USERS_URI} from '../../../services/constants';
 import User from './User';
+import List from './../../../common/List';
 
 export default function Users () {
 
     const {data: users} = useData([], USERS_URI);
 
-    return (
-        <ul className="users">
-            {users.map(user => {
-
-                return <User key={user.id} user={user} />;
-            })}
-        </ul>
-    );
+    return <List className='users' array={users} Component={User} />
 }
