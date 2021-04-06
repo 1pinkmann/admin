@@ -1,7 +1,7 @@
 import {React} from 'react';
 import './users.scss';
 import { useData } from './../../../hooks/useData';
-import {USERS_URI} from './../constants/usersConstants';
+import {USERS_URI} from '../../../services/constants';
 import User from './User';
 
 export default function Users () {

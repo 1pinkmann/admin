@@ -1,6 +1,6 @@
 import {React} from 'react';
 import './albums.scss';
-import { ALBUMS_URI } from '../constants/albumsConstants';
+import { ALBUMS_URI } from '../../../services/constants';
 import { useData } from '../../../hooks/useData';
 import Album from './Album';
 

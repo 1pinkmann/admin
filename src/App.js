@@ -5,6 +5,7 @@ import Users from './modules/Users/components/Users';
 import Albums from './modules/Albums/components/Albums';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { ALBUMS_URI, DASHBOARD_URI, USERS_URI } from './services/constants';
 
 
 export default function App() {
@@ -13,9 +14,9 @@ export default function App() {
         <Router>
             <Header />
             <Switch>
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/albums" component={Albums} />
-                <Route path="/users" component={Users} />
+                <Route path={DASHBOARD_URI} component={Dashboard} />
+                <Route path={ALBUMS_URI} component={Albums} />
+                <Route path={USERS_URI} component={Users} />
             </Switch>
         </Router>
     );
