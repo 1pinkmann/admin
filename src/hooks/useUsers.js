@@ -45,6 +45,7 @@ export function useUsers(defaultValue) {
 
     let handleCloseForm = () => {
         history.push(USERS_URI);
+        setEditingUser(null);
     }
 
     useEffect(() => {
