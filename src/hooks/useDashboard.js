@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react';
 
-import { get } from './../services/service';
+import { getDashboard } from '../services/service';
 
-export function useData(defaultValue, URI) {
+export function useDashboard(defaultValue, URI) {
 
     const [data, setData] = useState(defaultValue);
 
     useEffect(() => {
-        get(URI).then(({data}) => {
+        getDashboard(URI).then(({data}) => {
             setData(data);
         });
     }, [URI])

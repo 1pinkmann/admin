@@ -4,9 +4,10 @@ import Header from './modules/Header/components/Header';
 import Users from './modules/Users/components/Users';
 import Albums from './modules/Albums/components/Albums';
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { ALBUMS_URI, DASHBOARD_URI, USERS_URI } from './services/constants';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ALBUMS_URI, DASHBOARD_URI, USERS_URI, FORM_URI } from './services/constants';
+import Form from './modules/Form/components/Form';
+import UserProvider from './contexts/userContext';
 
 export default function App() {
 
@@ -16,7 +17,10 @@ export default function App() {
             <Switch>
                 <Route path={DASHBOARD_URI} component={Dashboard} />
                 <Route path={ALBUMS_URI} component={Albums} />
-                <Route path={USERS_URI} component={Users} />
+                <UserProvider>
+                    <Route path={USERS_URI} component={Users} />
+                    <Route path={FORM_URI} component={Form} />
+                </UserProvider>
             </Switch>
         </Router>
     );

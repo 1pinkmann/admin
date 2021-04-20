@@ -11,4 +11,59 @@
     &__item-cell {
         width: 33%;
     }
+
+    &__delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__edit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin-left: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__edit-icon {
+        fill: #343434;
+        transition: fill 0.2s ease-in-out;
+    }
+
+    &__edit:hover &__edit-icon {
+        fill: #044cf3;
+    }
+
+    &__delete:before, &__delete:after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 100%;
+        background-color: #333333;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    &__delete:before {
+        transform: rotateZ(45deg);
+    }
+
+    &__delete:after {
+        transform: rotateZ(-45deg);
+    }
+
+    &__delete:hover:before, &__delete:hover:after {
+        background-color: red;
+    }
 }
