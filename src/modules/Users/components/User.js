@@ -1,9 +1,10 @@
 import { React, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { FORM_URI } from '../../../services/constants';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { userContext } from './../../../contexts/userContext';
 
 export default function User({ item }) {
+
+    const { url } = useRouteMatch();
 
     let {handleRemove, handleEditUser} = useContext(userContext);
 
@@ -23,7 +24,7 @@ export default function User({ item }) {
             <span className="users__item-cell">{item.phone}</span>
             <a href={'mailto:' + item.email} className="users__item-cell">{item.email}</a>
             <button className="users__delete" onClick={handleRemoveClick}></button>
-            <Link to={FORM_URI} className="users__edit" onClick={handleEditClick}>
+            <Link to={url + '/' + item.id} className="users__edit" onClick={handleEditClick}>
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="edit"
                     className="users__edit-icon" role="img" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512">
