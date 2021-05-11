@@ -1,20 +1,25 @@
-import { React, useContext } from 'react';
+import { React} from 'react';
 import './users.scss';
 import User from './User';
 import List from './../../../common/List';
-import { userContext } from './../../../contexts/userContext';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function Users() {
+function Users({users, dispatch}) {
 
-    const { url } = useRouteMatch();
-
-    const { users } = useContext(userContext);
+    const {url} = useRouteMatch();
 
     return (
         <>
-            <List className='users' array={users} Component={User} />
-            <Link to={url + '/add'} className="button">Добавить</Link>
+            <List className='users' array={users} Component={User} dispatch={dispatch}/>
+            <Link to={url + 'add'} className="button">Добавить</Link>
         </>
     )
 }
+
+function mapStateToProps(state) {
+    return { users: state.users }
+}
+
+export default connect(mapStateToProps)(Users);
+

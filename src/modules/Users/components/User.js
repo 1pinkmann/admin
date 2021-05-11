@@ -1,30 +1,23 @@
-import { React, useContext } from 'react';
+import { React } from 'react';
+import { connect } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { userContext } from './../../../contexts/userContext';
+import { editUser } from '../../../store/users/actions';
 
-export default function User({ item }) {
+function User({ item, dispatch }) {
 
     const { url } = useRouteMatch();
 
-    let {handleRemove, handleEditUser} = useContext(userContext);
-
-    let handleRemoveClick = (e) => {
-        e.stopPropagation();
-        handleRemove(item.id);
-    }
-
     let handleEditClick = (e) => {
         e.stopPropagation();
-        handleEditUser(item);
+        dispatch(editUser(item));
     }
 
     return (
         <li className="users__item">
             <span className="users__item-cell">{item.name}</span>
-            <span className="users__item-cell">{item.phone}</span>
-            <a href={'mailto:' + item.email} className="users__item-cell">{item.email}</a>
-            <button className="users__delete" onClick={handleRemoveClick}></button>
-            <Link to={url + '/' + item.id} className="users__edit" onClick={handleEditClick}>
+            <span className="users__item-cell">{item.surname}</span>
+            <a href={'tel:' + item.phone} className="users__item-cell">{item.phone}</a>
+            <Link to={url + item.id} className="users__edit" onClick={handleEditClick}>
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="edit"
                     className="users__edit-icon" role="img" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512">
@@ -34,3 +27,5 @@ export default function User({ item }) {
         </li>
     );
 }
+
+export default connect()(User);

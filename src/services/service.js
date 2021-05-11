@@ -1,8 +1,4 @@
-import {dashboardApi, usersApi} from "./api";
-
-export function getDashboard(URI) {
-    return dashboardApi.get(URI);
-}
+import {usersApi} from "./api";
 
 export function getUsers() {
     return usersApi.get();
