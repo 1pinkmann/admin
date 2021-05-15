@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Users from './modules/Users/components/Users';
 
 import { Route, Switch } from 'react-router-dom';
@@ -7,9 +7,11 @@ import store from './store/store';
 import { fetchUsers } from './store/users/actions';
 import { Provider } from 'react-redux';
 
-store.dispatch(fetchUsers());
-
 export default function App() {
+
+    useEffect(() => {
+        store.dispatch(fetchUsers());
+    }, [])
 
     return (
         <Switch>
