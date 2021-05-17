@@ -50,8 +50,6 @@ export const handleSaveUser = (user) => (dispatch) => {
         post(user)
             .then(({data}) => dispatch(addUser(data)))
     }
-    
-    put(user, id).then(() => dispatch(updateUser(id)));
 }
 
 export const handleRemoveUser = (user) => (dispatch) => {
